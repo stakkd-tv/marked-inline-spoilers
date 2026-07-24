@@ -3,8 +3,19 @@
 Specify a spoiler in Markdown using the syntax `||spoiler||`
 
 The extension will output the spoiler in a `<span>` with a class of `spoiler` e.g.
-```
+```html
 <span class="spoiler">spoiler</span>
+```
+
+You can then use this to hide the element with some JS or CSS (depending on your UX). A simple example could look like this:
+```css
+.spoiler {
+	background-color: black;
+}
+
+.spoiler:hover {
+	background-color: transparent;
+}
 ```
 
 # Usage
