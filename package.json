@@ -1,6 +1,6 @@
 {
   "name": "marked-inline-spoilers",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Inline spoilers for markedjs",
   "main": "./lib/index.cjs",
   "module": "./src/index.js",
