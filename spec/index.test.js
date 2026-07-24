@@ -21,4 +21,9 @@ describe('inline-spoilers', () => {
     marked.use({ extensions: [inlineSpoilers()] });
     expect(marked.parse('||BOO!||')).toBe('<p><span class="spoiler">BOO!</span></p>\n');
   });
+
+  test('in heading', () => {
+    marked.use({ extensions: [inlineSpoilers()] });
+    expect(marked.parse('# my heading contains ||spoiler||')).toBe('<h1>my heading contains <span class="spoiler">spoiler</span></h1>\n');
+  });
 });
