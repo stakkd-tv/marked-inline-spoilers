@@ -2,7 +2,7 @@
 
 Specify a spoiler in Markdown using the syntax `||spoiler||`
 
-The extension will output the spoiler in a <span> with a class of `spoiler` e.g.
+The extension will output the spoiler in a `<span>` with a class of `spoiler` e.g.
 ```
 <span class="spoiler">spoiler</span>
 ```
