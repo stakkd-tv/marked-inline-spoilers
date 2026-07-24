@@ -1,5 +1,5 @@
 import { marked } from 'marked';
-import inlineSpoilers from '../src'; 'marked-inline-spoilers';
+import inlineSpoilers from 'marked-inline-spoilers';
 
 marked.use(inlineSpoilers());
 
