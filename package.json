@@ -75,7 +75,7 @@
   "tsd": {
     "compilerOptions": {
       "paths": {
-        "marked-custom-heading-id": [
+        "marked-inline-spoilers": [
           "./src"
         ]
       }
