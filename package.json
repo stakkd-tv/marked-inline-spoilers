@@ -1,7 +1,7 @@
 {
-  "name": "marked-custom-heading-id",
-  "version": "2.0.17",
-  "description": "marked extension template",
+  "name": "marked-inline-spoilers",
+  "version": "1.0.0",
+  "description": "Inline spoilers for markedjs",
   "main": "./lib/index.cjs",
   "module": "./src/index.js",
   "browser": "./lib/index.umd.js",
@@ -26,9 +26,8 @@
   "keywords": [
     "marked",
     "extension",
-    "custom",
-    "heading",
-    "id"
+    "inline",
+    "spoilers"
   ],
   "scripts": {
     "test": "jest --verbose",
@@ -41,14 +40,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/markedjs/marked-custom-heading-id.git"
+    "url": "git+https://github.com/stakkd-tv/marked-inline-spoilers.git"
   },
-  "author": "Tony Brix <Tony@Brix.ninja> (https://Tony.Brix.ninja)",
+  "author": "Tanveer Najib <tanveer@stellarworks.dev> (https://crxssed.dev)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/markedjs/marked-custom-heading-id/issues"
+    "url": "https://github.com/stakkd-tv/marked-inline-spoilers/issues"
   },
-  "homepage": "https://github.com/markedjs/marked-custom-heading-id#readme",
+  "homepage": "https://github.com/stakkd-tv/marked-inline-spoilers#readme",
   "peerDependencies": {
     "marked": ">=1 <19"
   },

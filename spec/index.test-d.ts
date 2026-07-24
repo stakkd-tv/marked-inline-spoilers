@@ -1,6 +1,6 @@
 import { marked } from 'marked';
-import customHeadingId from 'marked-custom-heading-id';
+import inlineSpoilers from '../src'; 'marked-inline-spoilers';
 
-marked.use(customHeadingId());
+marked.use(inlineSpoilers());
 
-marked('# heading {#custom-id}');
+marked('This is a ||spoiler||');

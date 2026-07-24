@@ -1,21 +1,26 @@
-export default function customHeadingId() {
+export default function inlineSpoilers() {
   return {
-    useNewRenderer: true,
-    renderer: {
-      heading(text, depth) {
-        /* istanbul ignore next */
-        if (typeof text !== 'string') {
-          depth = text.depth;
-          text = text.text;
-        }
-        const headingIdRegex = /(?: +|^)\{#([a-z][\w-]*)\}(?: +|$)/i;
-        const hasId = text.match(headingIdRegex);
-        if (!hasId) {
-          // fallback to original heading renderer
-          return false;
-        }
-        return `<h${depth} id="${hasId[1]}">${text.replace(headingIdRegex, '')}</h${depth}>\n`;
-      },
+    name: 'spoiler',
+    level: 'inline',
+
+    start(src) {
+      return src.indexOf('||');
+    },
+
+    tokenizer(src) {
+      const match = /^\|\|([\s\S]+?)\|\|/.exec(src);
+
+      if (!match) return false;
+
+      return {
+        type: 'spoiler',
+        raw: match[0],
+        tokens: this.lexer.inlineTokens(match[1]),
+      };
+    },
+
+    renderer(token) {
+      return `<span class="spoiler">${this.parser.parseInline(token.tokens)}</span>`;
     },
   };
 }

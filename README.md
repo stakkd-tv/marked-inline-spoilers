@@ -1,26 +1,24 @@
-# marked-custom-heading-id
+# marked-inline-spoilers
 
-Specify a custom heading id in headings with the [Markdown Extended Syntax](https://www.markdownguide.org/extended-syntax/#heading-ids) `# heading {#custom-id}`
+Specify a spoiler in Markdown using the syntax `||spoiler||`
 
-The heading will be rendered with the string between `{#` and `}`
-
-The id must be a valid id with the following criteria:
-
-  - Must start with a letter (`A-Z`, `a-z`)
-  - Must only contain word characters (`A-Z`, `a-z`, `0-9`, `_`) or dashes (`-`)
+The extension will output the spoiler in a <span> with a class of `spoiler` e.g.
+```
+<span class="spoiler">spoiler</span>
+```
 
 # Usage
 
 ```js
 import { marked } from "marked";
-import customHeadingId from "marked-custom-heading-id";
+import inlineSpoilers from "marked-inline-spoilers";
 
 // or UMD script
 // <script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.js"></script>
-// <script src="https://cdn.jsdelivr.net/npm/marked-custom-heading-id/lib/index.umd.js"></script>
+// <script src="https://cdn.jsdelivr.net/npm/marked-inline-spoilers/lib/index.umd.js"></script>
 
-marked.use(customHeadingId());
+marked.use(inlineSpoilers());
 
-marked("# heading {#custom-id}");
-// <h1 id="custom-id">heading</h1>
+marked("This is a ||great|| spoiler!");
+// <p>This is a <span class="spoiler">great</span> spoiler!</p>
 ```

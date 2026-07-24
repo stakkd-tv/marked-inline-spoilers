@@ -1,4 +1,4 @@
 import type { MarkedExtension } from 'marked';
-declare function customHeadingId(): MarkedExtension;
+declare function inlineSpoilers(): MarkedExtension;
 
-export default customHeadingId;
+export default inlineSpoilers;

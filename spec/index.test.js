@@ -1,19 +1,24 @@
 import { Marked } from 'marked';
-import cusomtHeadingId from '../src/index.js';
+import inlineSpoilers from '../src/index.js';
 
-describe('custom-heading-id', () => {
+describe('inline-spoilers', () => {
   let marked;
   beforeEach(() => {
     marked = new Marked();
   });
 
-  test('no options', () => {
-    marked.use(cusomtHeadingId());
-    expect(marked.parse('# heading {#custom-id}')).toBe('<h1 id="custom-id">heading</h1>\n');
+  test('spoiler text specified', () => {
+    marked.use({ extensions: [inlineSpoilers()] });
+    expect(marked.parse('This is some text ||with a spoiler||...')).toBe('<p>This is some text <span class="spoiler">with a spoiler</span>...</p>\n');
   });
 
-  test('slug id if no custom id specified', () => {
-    marked.use(cusomtHeadingId());
-    expect(marked.parse('# heading')).toBe('<h1>heading</h1>\n');
+  test('no spoiler text specified', () => {
+    marked.use({ extensions: [inlineSpoilers()] });
+    expect(marked.parse('This is some text...')).toBe('<p>This is some text...</p>\n');
+  });
+
+  test('only spoiler specified', () => {
+    marked.use({ extensions: [inlineSpoilers()] });
+    expect(marked.parse('||BOO!||')).toBe('<p><span class="spoiler">BOO!</span></p>\n');
   });
 });
